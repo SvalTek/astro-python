@@ -1,0 +1,37 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"button"> {
+  event: string;
+}
+
+const { event, ...props } = Astro.props;
+---
+
+<button data-ipc-event={event} {...props}>
+  <slot />
+</button>
+<script>
+  import { SendEventIPC } from "../scripts/ipc";
+
+  // This function handles the button click event and sends an IPC event to the main process
+  function handleClick(this: HTMLButtonElement, e: Event) {
+    e.preventDefault();
+    const target = e.target as HTMLButtonElement;
+    const event_name = target.getAttribute("data-ipc-event") as string;
+
+    SendEventIPC({ name: event_name, data: {} })
+      .then((response) => {
+        console.log("Response:", response);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  }
+
+  // find the data-ipc-event attribute and add a click event listener
+  document.querySelectorAll("button[data-ipc-event]").forEach((button) => {
+    button.addEventListener("click", handleClick);
+  });
+
+</script>

@@ -1,0 +1,60 @@
+---
+import "../styles/global.css";
+import { APP_NAME, APP_DESCRIPTION, APP_AUTHOR, APP_VERSION } from "../consts";
+import SideBar from "../components/SideBar.astro";
+import StatusBar from "../components/StatusBar.astro";
+import BaseHead from "../components/BaseHead.astro";
+
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="title" content={APP_NAME} />
+    <meta name="description" content={APP_DESCRIPTION} />
+    <meta name="version" content={APP_VERSION} />
+    <meta name="author" content={APP_AUTHOR} />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title} - {APP_NAME}</title>
+  </head>
+  <body class="flex flex-col min-h-screen overflow-hidden">
+    <header class="app-titlebar-wrap flex-none">
+      <BaseHead title={APP_NAME} description={APP_DESCRIPTION} />
+    </header>
+    <div class="flex flex-grow">
+      <!-- Sidebar content -->
+      <SideBar title={APP_NAME} />
+      <div class="main-content flex-grow p-10 overflow-auto">
+        <slot />
+      </div>
+    </div>
+    <footer class="w-full p-2 flex justify-between items-center">
+      <StatusBar />
+    </footer>
+  </body>
+</html>
+
+<style>
+  .main-content {
+    transition: margin-left 0.4s ease-in-out;
+    height: calc(100vh - 2rem);
+  }
+
+  .status-messages span {
+    margin-right: 4px;
+  }
+
+  /* Custom Scrollbar Styling */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary-text) var(--background);
+  }
+</style>

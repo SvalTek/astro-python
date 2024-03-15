@@ -1,0 +1,19 @@
+---
+interface Props {}
+const {} = Astro.props;
+---
+
+<main id="app-statusbar" class="app-statusbar row-auto">
+  <div class="app-statusbar-left flex-col">
+    <div class="app-statusbar-message container col-auto">
+      <span id="app-statusbar-text" class="app-statusbar-message-text">
+        Loading...
+      </span>
+    </div>
+  </div>
+  <div class="app-statusbar-right flex flex-col col-auto">
+    <div class="app-statusbar-icons container">
+      <slot name="app-statusbar-icons" />
+    </div>
+  </div>
+</main>

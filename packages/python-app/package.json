@@ -1,0 +1,7 @@
+{
+  "name": "@astro-python/python",
+  "version": "0.0.1",
+  "description": "The python app for the Astro Python project",
+  "repository": "http://github.com/therosin/astro-python",
+  "private": true
+}

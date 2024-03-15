@@ -1,0 +1,37 @@
+{
+  "extends": [
+    "astro/tsconfigs/strict",
+    "../../tsconfig.json"
+  ],
+  "compilerOptions": {
+    "baseUrl": "X:/Development/Projects/astro-python/packages/astro-app",
+    "strictNullChecks": true,
+    "paths": {
+      "$components/*": [
+        "src/components/*"
+      ],
+      "$pages/*": [
+        "src/pages/*"
+      ],
+      "$layouts/*": [
+        "src/layouts/*"
+      ],
+      "$styles/*": [
+        "src/styles/*"
+      ],
+      "$content/*": [
+        "src/content/*"
+      ],
+      "$utils/*": [
+        "src/utils/*"
+      ],
+      "$scripts/*": [
+        "src/scripts/*"
+      ],
+      "$stores/*": [
+        "src/stores/*"
+      ]
+    },
+    "jsx": "preserve"
+  }
+}

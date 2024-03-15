@@ -1,0 +1,26 @@
+---
+import Application from "../layouts/Application.astro";
+import IpcButton from "../components/IpcButton.astro";
+import LoginForm from "../components/LoginForm.vue";
+---
+
+<Application title="Home">
+  <main>
+    <h1>Test</h1>
+    <hr class="my-4" />
+
+    <p>
+      <IpcButton
+        event="message-test"
+        id="testButton"
+        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+      >
+        Click me
+      </IpcButton>
+    </p>
+
+    <hr class="my-4" />
+
+    <LoginForm client:load />
+  </main>
+</Application>

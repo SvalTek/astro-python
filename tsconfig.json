@@ -1,0 +1,12 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "paths": {
+      "@shared/*": ["./shared/*"],
+      "@packages/*": ["./packages/*"],
+      "@libs/*": ["./libs/*"],
+    }
+  }
+}

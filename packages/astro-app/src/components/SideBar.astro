@@ -1,0 +1,84 @@
+---
+import NavLink from "../components/NavLink.astro";
+
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<aside class="app-sidebar-wrap w-64" id="sidebar">
+  <div class="app-sidebar h-full p-4">
+    <h3 class="text-lg font-bold mb-2 text-zinc-950">{title}</h3>
+    <div class="app-sidebar-links">
+      <ul id="sidebar-links" class="list-none p-0 m-0">
+        <li class="mb-2">
+          <NavLink href="/" text="Home" />
+        </li>
+        <li class="mb-2">
+          <NavLink href="/about/" text="About" />
+        </li>
+        <li class="mb-2">
+          <NavLink href="/docs/" text="Documents" />
+        </li>
+      </ul>
+    </div>
+    <div class="app-sidebar-pagelinks">
+      <slot />
+    </div>
+  </div>
+</aside>
+<aside class="app-sidebar-toggle flex-none sticky overflow-hidden">
+  <!-- Sidebar Toggle Button -->
+  <button class="app-sidebar-toggle-button" aria-label="Toggle Sidebar">
+    <svg
+      class="w-6 h-6"
+      fill="none"
+      stroke="darkgrey"
+      viewBox="0 0 24 24"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M4 6h16M4 12h16M4 18h16"></path>
+    </svg>
+  </button>
+</aside>
+
+<style>
+  .app-sidebar-wrap {
+    width: 256px;
+    transition: width 0.4s ease-in-out;
+  }
+
+  .app-sidebar-wrap.hidden {
+    width: 0;
+    overflow: hidden;
+  }
+  .app-sidebar {
+    position: sticky;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    background-color: #f7f7f7;
+  }
+
+  .app-sidebar-links a {
+    color: #333;
+    text-decoration: none;
+  }
+</style>
+
+<script>
+  const sidebar = document.querySelector("#sidebar") as HTMLElement;
+  const sidebarToggle = document.querySelector(
+    ".app-sidebar-toggle-button"
+  ) as HTMLElement;
+
+  sidebarToggle.addEventListener("click", () => {
+    sidebar.classList.toggle("hidden");
+  });
+</script>
