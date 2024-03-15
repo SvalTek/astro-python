@@ -6,6 +6,8 @@ Sooner or later, I will write a proper introduction to this project. For now... 
 
 _It's a work in progress, You've been warned!_
 
+[Cheak out the wiki](https://github.com/SvalTek/astro-python/wiki)
+
 ## Features
 
 - ✅ IPC Event based communication between the Astro UI and python backend.
@@ -15,6 +17,7 @@ _It's a work in progress, You've been warned!_
 - ✅ Vue Components.
 - ✅ Nanostores & Nanostores/persistant.
 - ✅ Typescript & Tailwind CSS.
+- ✅ Basic packaging. (win/linux x64)
 
 ## Installation
 
@@ -33,6 +36,11 @@ To build and run the project, run the following command:
 yarn run build
 yarn start
 ```
+To package the app run the following, the packaged app can then be found at dist/astro-python
 
-you can distribute the `dist` folder + the python app together in a folder and run that as a standalone application under a venv.
-_I'll sort a packaging script for this soon_
+```bash
+# build and package using
+yarn run package
+# package (skipping build)
+yarn run build:python-package
+```
