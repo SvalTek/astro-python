@@ -21,12 +21,13 @@ readme = 'README.md'
   include = "packages/python-app"
 
   [tool.poetry.dependencies]
-  python = "^3.10.0"
+  python = ">=3.10.0,<3.13"
   webui2 = "^2.4.5"
   click = "^8.1.7"
   asyncio = "^3.4.3"
 
   [tool.poetry.group.dev.dependencies]
+  pyinstaller = "^6.5.0"
   autopep8 = "2.0.2"
   flake8 = "6.0.0"
   pytest = "7.3.1"

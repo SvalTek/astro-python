@@ -16,7 +16,9 @@
     "build": "yarn workspace @astro-python/astro build",
     "test-python": "python -m pytest ./packages/python-app/tests",
     "start": "python ./packages/python-app/main.py",
-    "poetry": "poetry"
+    "poetry": "poetry",
+    "package": "yarn build && yarn build:python-package",
+    "build:python-package": "pyinstaller ./astro-python.spec"
   },
   "dependencies": {},
   "devDependencies": {

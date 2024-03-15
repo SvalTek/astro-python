@@ -14,6 +14,8 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with astro-python.  If not, see <http://www.gnu.org/licenses/>.
+import os
+print(f"main.py: running in {os.getcwd()}")
 from lib.event_manager import EventManager
 from lib.window_manager import WindowManager
 from event_handlers.message_event import register_message_events
