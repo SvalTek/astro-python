@@ -15,6 +15,7 @@
 # You should have received a copy of the GNU General Public License
 # along with astro-python.  If not, see <http://www.gnu.org/licenses/>.
 import os
+import sys
 print(f"main.py: running in {os.getcwd()}")
 from lib.event_manager import EventManager
 from lib.window_manager import WindowManager
@@ -41,6 +42,9 @@ register_user_events(event_manager)
 
 
 def main():
+    # pyinstaller has a different working directory than the source code, so we need to change to the correct directory if MEIPASS is set
+    if getattr(sys, "_MEIPASS", None):
+        os.chdir(sys._MEIPASS)
     window_manager.create_window("main", "dist/astro", "index.html")
     window_manager.show_window("main")
     window_manager.start()
