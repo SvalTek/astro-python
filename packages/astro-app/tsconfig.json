@@ -4,7 +4,7 @@
     "../../tsconfig.json"
   ],
   "compilerOptions": {
-    "baseUrl": "X:/Development/Projects/astro-python/packages/astro-app",
+    "baseUrl": ".",
     "strictNullChecks": true,
     "paths": {
       "$components/*": [
